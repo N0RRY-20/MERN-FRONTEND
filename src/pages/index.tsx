@@ -1,6 +1,5 @@
-import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
-import PageHead from "@/components/ui/common/PageHead";
+import PageHead from "@/components/common/PageHead";
 import { Button } from "@/components/ui/button";
 
 const geistSans = Geist({

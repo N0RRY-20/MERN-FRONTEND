@@ -4,7 +4,7 @@ interface PropsType {
   title?: string;
 }
 
-const PageHead = (props: PropsType) => {
+export const PageHead = (props: PropsType) => {
   const { title = "acara" } = props;
 
   return (
@@ -15,5 +15,3 @@ const PageHead = (props: PropsType) => {
     </Head>
   );
 };
-
-export default PageHead;

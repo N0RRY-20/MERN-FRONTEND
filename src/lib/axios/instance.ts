@@ -7,11 +7,11 @@ interface CustomSession extends Session {
   accessToken?: string;
 }
 
-const headers = { "content-type": "apolication/json" };
+const headers = { "content-type": "application/json" };
 
-const instance = axios.create({
+export const instance = axios.create({
   baseURL: environment.API_URL,
-  timeout: 5000,
+  timeout: 60 * 1000,
   headers,
 });
 
