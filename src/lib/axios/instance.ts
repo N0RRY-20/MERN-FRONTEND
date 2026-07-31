@@ -1,11 +1,5 @@
 import { environment } from "@/configs/environment";
 import axios from "axios";
-import { Session } from "next-auth";
-import { getSession } from "next-auth/react";
-
-interface CustomSession extends Session {
-  accessToken?: string;
-}
 
 const headers = { "content-type": "application/json" };
 
@@ -17,14 +11,14 @@ export const instance = axios.create({
 
 // Add a request interceptor
 instance.interceptors.request.use(
-  async function (config) {
+  function (config) {
     // Do something before request is sent
-    const session: CustomSession | null = await getSession();
-
-    if (session && session.accessToken) {
-      config.headers.Authorization = `Bearer ${session.accessToken}`;
-    }
-
+    // TODO: pasang kembali header Authorization di sini setelah route
+    // `pages/api/auth/[...nextauth].ts` dibuat:
+    //   const session: CustomSession | null = await getSession();
+    //   if (session?.accessToken) {
+    //     config.headers.Authorization = `Bearer ${session.accessToken}`;
+    //   }
     return config;
   },
   function (error) {
